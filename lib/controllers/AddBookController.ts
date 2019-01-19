@@ -1,18 +1,15 @@
-import { Request, Response } from 'express';
-const books = require('../models/BooksList');
+const books = require("../models/BooksList");
+import { Request, Response } from "express";
 
-export class AddBookController{
+export class AddBookController {
 
-    public addBook(req: Request, res: Response): void{
-        console.log("Add reached");
-        const book: string = req.body.book;
-        console.log(book);
-        books.booksList.push(book);
+    public addBook(req: Request, res: Response): void {
+        const bookObj: string = req.body.book;
+        books.booksList.push(bookObj);
         res.status(200).json({
             status: "Book Added",
-            book: book,
-            books: books.booksList
+            book: bookObj,
+            books: books.booksList,
         });
     }
-
 }

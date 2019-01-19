@@ -1,17 +1,16 @@
-import * as express from 'express';
-import * as bodyParser from 'body-parser';
-import { GetBooksController } from './controllers/GetBooksController';
+import * as bodyParser from "body-parser";
+import * as express from "express";
+import { GetBooksController } from "./controllers/GetBooksController";
 
-//import Routers
-import { BookRouter } from './routes/BookRouter';
+import { BookRouter } from "./routes/BookRouter";
 
 class Server {
     public app: express.Application;
     private PORT: number  = 3000;
 
-    bookRouter:BookRouter = new BookRouter();
+    private bookRouter: BookRouter = new BookRouter();
 
-    constructor(){
+    constructor() {
         this.app = express();
         this.config();
         this.runServer();
@@ -21,14 +20,12 @@ class Server {
         this.bookRouter.findBookRoute(this.app);
     }
 
-    public config(): void{
+    private config(): void {
         this.app.use(bodyParser.json());
     }
 
-    private runServer(){
-        this.app.listen(this.PORT, function(){
-            console.log("Server is listening on port " + this.PORT + "...");
-        })
+    private runServer() {
+        this.app.listen(this.PORT);
     }
 }
 

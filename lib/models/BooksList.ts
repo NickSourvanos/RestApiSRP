@@ -1,1 +1,1 @@
-exports.booksList = ['book1', 'book2'];
+exports.booksList = ["book1", "book2"];

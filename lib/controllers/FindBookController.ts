@@ -1,28 +1,27 @@
-import { Request, Response } from 'express';
-const books = require('../models/BooksList');
+import { Request, Response } from "express";
+const books = require("../models/BooksList");
 
-export class FindBookController{
+export class FindBookController {
 
-    public findBook(req: Request, res: Response): void{
-        const book: string = req.params.book;
-        console.log("Param: " + book);
-        var flag = false;
-        for(var i = 0; i < books.booksList.length; i++){
-            if(book === books.booksList[i]){
-                flag = true; 
+    public findBook(req: Request, res: Response): void {
+        const bookObject: string = req.params.book;
+        let flag = false;
+        for (const b of books.booksList) {
+            if (bookObject === books.booksList[b]) {
+                flag = true;
                 break;
-            }else{
+            } else {
                 flag = false;
             }
         }
-        if(flag){
+        if (flag) {
             res.status(200).json({
-                book: book,
-                message: 'Book Found'
+                book: bookObject,
+                message: "Book Found",
             });
-        }else{
+        } else {
             res.status(200).json({
-                message: 'Book does not exist'
+                message: "Book does not exist",
             });
         }
     }
