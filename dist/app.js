@@ -1,8 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const express = require("express");
 const bodyParser = require("body-parser");
-//import Routers
+const express = require("express");
 const BookRouter_1 = require("./routes/BookRouter");
 class Server {
     constructor() {
@@ -19,9 +18,7 @@ class Server {
         this.app.use(bodyParser.json());
     }
     runServer() {
-        this.app.listen(this.PORT, function () {
-            console.log("Server is listening on port " + this.PORT + "...");
-        });
+        this.app.listen(this.PORT);
     }
 }
 exports.default = new Server().app;

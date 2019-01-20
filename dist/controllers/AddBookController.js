@@ -1,16 +1,14 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const books = require('../models/BooksList');
+const books = require("../models/BooksList");
 class AddBookController {
     addBook(req, res) {
-        console.log("Add reached");
-        const book = req.body.book;
-        console.log(book);
-        books.booksList.push(book);
+        const bookObj = req.body.book;
+        books.booksList.push(bookObj);
         res.status(200).json({
             status: "Book Added",
-            book: book,
-            books: books.booksList
+            book: bookObj,
+            books: books.booksList,
         });
     }
 }

@@ -7,7 +7,7 @@ export class FindBookController {
         const bookObject: string = req.params.book;
         let flag = false;
         for (const b of books.booksList) {
-            if (bookObject === books.booksList[b]) {
+            if (bookObject === b) {
                 flag = true;
                 break;
             } else {

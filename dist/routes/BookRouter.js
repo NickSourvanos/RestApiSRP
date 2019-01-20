@@ -1,9 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const GetBooksController_1 = require("../controllers/GetBooksController");
 const AddBookController_1 = require("../controllers/AddBookController");
+const books = require("../models/BooksList");
 const FindBookController_1 = require("../controllers/FindBookController");
-const books = require('../models/BooksList');
+const GetBooksController_1 = require("../controllers/GetBooksController");
 class BookRouter {
     constructor() {
         this.getBooksController = new GetBooksController_1.GetBooksController();
@@ -11,17 +11,17 @@ class BookRouter {
         this.findBookController = new FindBookController_1.FindBookController();
     }
     getBooksRoute(app) {
-        app.route('/books').get((req, res) => {
+        app.route("/books").get((req, res) => {
             this.getBooksController.getBook(req, res);
         });
     }
     addBookRoute(app) {
-        app.route('/books').post((req, res) => {
+        app.route("/books").post((req, res) => {
             this.addBookController.addBook(req, res);
         });
     }
     findBookRoute(app) {
-        app.route('/books/:book').get((req, res) => {
+        app.route("/books/:book").get((req, res) => {
             this.findBookController.findBook(req, res);
         });
     }

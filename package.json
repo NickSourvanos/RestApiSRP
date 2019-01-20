@@ -5,9 +5,10 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc",
-    "dev": "ts-node ./lib/app.ts",
+    "lint": "tslint --project tsconfig.json --config tslint.json",
+    "dev": "npm run lint && ts-node ./lib/app.ts",
     "start": "nodemon ./dist/app.js",
-    "prod": "npm run build && npm run start",
+    "prod": "npm run lint && npm run build && npm run start",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -17,6 +18,7 @@
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
     "nodemon": "^1.18.9",
-    "tslint": "^5.12.1"
+    "tslint": "^5.12.1",
+    "typescript": "^3.2.4"
   }
 }
